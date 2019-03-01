@@ -1,0 +1,29 @@
+{
+  "name": "gemini-localtunnel",
+  "version": "1.0.0-beta.1",
+  "description": "A plugin for Gemini that allows remote Selenium access your local web-server.",
+  "main": "index.js",
+  "keywords": "gemini-plugin",
+  "engines" : { "node" : ">=8.0.0" },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeyoganezov/gemini-localtunnel.git"
+  },
+  "author": "Alexey Oganezov <alexey@oganezov.work>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexeyoganezov/gemini-localtunnel/issues"
+  },
+  "homepage": "https://github.com/alexeyoganezov/gemini-localtunnel#readme",
+  "dependencies": {
+    "localtunnel": "^1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
