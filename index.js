@@ -1,15 +1,26 @@
 const localtunnel = require('localtunnel');
-const util = require('util');
 
-const localtunnelAsync = util.promisify(localtunnel);
+let tunnelInstance;
 
-module.exports = function(gemini, options) {
-  let tunnel;
-  gemini.on(gemini.events.START_RUNNER, async () => {
-    tunnel = await localtunnel(options.port, options.subdomain);
-    gemini.config.rootUrl = tunnel.url;
-  });
+module.exports = function (gemini, options) {
+  gemini.on(gemini.events.START_RUNNER, () => new Promise((resolve, reject) => {
+    localtunnel(options.port || options.localPort, {
+      subdomain: options.subdomain || options.desiredSubdomain,
+      host: options.host || options.tunnelHost,
+    }, (err, tunnel) => {
+      if (err) {
+        reject(err);
+      } else {
+        tunnelInstance = tunnel;
+        console.log(`Tunnel opened: ${tunnel.url}`);
+        resolve();
+      }
+    });
+  }));
   gemini.on(gemini.events.END_RUNNER, () => {
-    tunnel.close();
+    if (tunnelInstance) {
+      tunnelInstance.close();
+      console.log('Tunnel closed');
+    }
   });
 };
