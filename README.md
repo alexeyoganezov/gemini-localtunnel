@@ -2,7 +2,7 @@
 
 A plugin for [Gemini](https://gemini-testing.github.io/) that allows standalone Selenium Sever _(or another compatible solution like Selenoid)_ to access your local web-server.  
 
-Useful for cases when tests can be started from various sources (several CI-agents and developer workstations) that are placed in different networks and behind different NATs/firewalls.
+Useful for cases when tests can be started from various sources (several CI-agents and developer workstations) that are placed in different networks and behind NATs/firewalls.
 
 Supposed to be used in pair with [gemini-express](https://github.com/Saulis/gemini-express), [gemini-ecstatic](https://github.com/w0rm/gemini-ecstatic) or another solution that starts/stops web-server on test runs. 
 
