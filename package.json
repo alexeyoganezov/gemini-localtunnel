@@ -1,6 +1,6 @@
 {
   "name": "gemini-localtunnel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin for Gemini that allows remote Selenium to access your local web-server.",
   "main": "index.js",
   "keywords": "gemini-plugin",

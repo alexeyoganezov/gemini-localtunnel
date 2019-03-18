@@ -1,4 +1,5 @@
 const localtunnel = require('localtunnel');
+const url = require('url');
 
 let tunnelInstance;
 
@@ -13,6 +14,9 @@ module.exports = function (gemini, options) {
       } else {
         tunnelInstance = tunnel;
         console.log(`Tunnel opened: ${tunnel.url}`);
+        gemini.config.getBrowserIds().forEach((id) => {
+          gemini.config.forBrowser(id).rootUrl = tunnel.url;
+        });
         resolve();
       }
     });
